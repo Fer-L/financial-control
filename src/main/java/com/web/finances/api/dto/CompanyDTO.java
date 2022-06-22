@@ -1,4 +1,4 @@
-package com.web.finances.dtos;
+package com.web.finances.api.dto;
 import lombok.Data;
 
 @Data

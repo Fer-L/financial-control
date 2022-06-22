@@ -1,4 +1,4 @@
-package com.web.finances.model;
+package com.web.finances.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,31 +11,28 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "RECEIVE_WRITE_OFF_TB")
+@Table(name = "ENTRY_PAY_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReceiveWriteOff {
-    //RECEBER ESCRITURA
+public class EntryPay {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String bank;
+    private String docNumber;
 
     @NotNull
-    private String availability;
+    private Long titleValue;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dischargeDate;
+    private LocalDate dueDate;
 
     @NotNull
-    private Long paidValue;
-
-    @NotNull
-    private String residual;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate emissionDate;
 }

@@ -1,4 +1,4 @@
-package com.web.finances.security;
+package com.web.finances.domain.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

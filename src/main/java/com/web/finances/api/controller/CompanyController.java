@@ -1,4 +1,4 @@
-package com.web.finances.controller;
+package com.web.finances.api.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.web.finances.dtos.CompanyDTO;
-import com.web.finances.model.Company;
+import com.web.finances.api.dto.CompanyDTO;
+import com.web.finances.domain.model.Company;
 
-import com.web.finances.repository.CompanyRepository;
+import com.web.finances.domain.repository.CompanyRepository;
 
 @RestController
 @RequestMapping("/company")

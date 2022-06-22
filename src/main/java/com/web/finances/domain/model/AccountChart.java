@@ -1,4 +1,4 @@
-package com.web.finances.model;
+package com.web.finances.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,16 +8,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "BANK_ACCOUNT_TB")
+@Table(name = "ACCOUNT_CHART_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BankAccount {
+public class AccountChart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,21 +26,20 @@ public class BankAccount {
     private String classification;
 
     @NotNull
+    private String accountType;
+
+    @NotNull
     private String description;
 
     @NotNull
-    private String accountNumber;
-
-    @NotNull
-    private String agencyNumber;
+    private Long bank;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate inicialBalanceDate;
+    private LocalDate resourceEntry;
 
     @NotNull
-    private BigDecimal inicialBalance;
-
-    @NotNull
-    private Long bank;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate resourceDeparture;
 }
+

@@ -1,4 +1,4 @@
-package com.web.finances.model;
+package com.web.finances.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,35 +11,31 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "ACCOUNT_CHART_TB")
+@Table(name = "RECEIVE_WRITE_OFF_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountChart {
+public class ReceiveWriteOff {
+    //RECEBER ESCRITURA
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String classification;
+    private String bank;
 
     @NotNull
-    private String accountType;
-
-    @NotNull
-    private String description;
-
-    @NotNull
-    private Long bank;
+    private String availability;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate resourceEntry;
+    private LocalDate dischargeDate;
 
     @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate resourceDeparture;
+    private Long paidValue;
+
+    @NotNull
+    private String residual;
 }
-

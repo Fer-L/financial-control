@@ -1,4 +1,4 @@
-package com.web.finances.security;
+package com.web.finances.domain.security;
 
 import java.util.Collections;
 import java.util.Date;

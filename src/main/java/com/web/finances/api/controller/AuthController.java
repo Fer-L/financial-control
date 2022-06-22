@@ -1,4 +1,4 @@
-package com.web.finances.controller;
+package com.web.finances.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.web.finances.dtos.JwtResponse;
-import com.web.finances.dtos.LoginDTO;
-import com.web.finances.model.Users;
-import com.web.finances.repository.UserRepository;
-import com.web.finances.security.TokenAuthenticationService;
+import com.web.finances.api.dto.JwtResponse;
+import com.web.finances.api.dto.LoginDTO;
+import com.web.finances.domain.model.Users;
+import com.web.finances.domain.repository.UserRepository;
+import com.web.finances.domain.security.TokenAuthenticationService;
 
 @RestController
 @RequestMapping("/login")
