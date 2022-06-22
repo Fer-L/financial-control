@@ -8,6 +8,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "COMPANY_TB")
 @Getter
@@ -17,7 +19,11 @@ import javax.validation.constraints.NotNull;
 public class Company {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "seq_gen", 
+      strategy = "increment")
+    @GeneratedValue(
+      strategy = GenerationType.AUTO, 
+      generator = "seq_gen")
     private Long id;
 
     @NotNull

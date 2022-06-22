@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReceiveWriteOff {
+    //RECEBER ESCRITURA
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
