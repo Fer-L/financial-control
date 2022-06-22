@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
+    //usuários
 @Entity
 @Table(name = "USERS_TB")
 @Getter

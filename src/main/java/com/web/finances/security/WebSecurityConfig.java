@@ -37,7 +37,7 @@ public class WebSecurityConfig {
     http.cors().and().csrf().disable()
     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
     .and()
-    .authorizeRequests().antMatchers("/login**").permitAll()
+    .authorizeRequests().antMatchers("/**").permitAll()
     .anyRequest()
     .authenticated().and()
         // Verifica todas as requisições se possui o JWT no header

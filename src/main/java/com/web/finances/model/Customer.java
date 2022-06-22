@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-
+    //parceiro
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

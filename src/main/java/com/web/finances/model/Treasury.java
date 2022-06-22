@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Treasury {
-
+    //TESOURARIA
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
