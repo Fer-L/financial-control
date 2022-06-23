@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "TREASURY_DB")
@@ -36,4 +37,18 @@ public class Treasury {
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate availabilityDate;
+
+    @ManyToOne
+    @JoinColumn(name="accountChart_id", nullable=false)
+    private AccountChart accountChart;
+
+    @ManyToOne
+    @JoinColumn(name="provider_id", nullable=false)
+    private Provider provider;
+
+    @ManyToMany
+    Set<EntryPay> entryPays;
+
+    @ManyToMany
+    Set<PaymentForm> paymentForms;
 }

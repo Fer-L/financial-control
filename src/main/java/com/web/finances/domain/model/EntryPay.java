@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "ENTRY_PAY_TB")
@@ -35,4 +36,20 @@ public class EntryPay {
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emissionDate;
+
+    @ManyToMany
+    Set<Treasury> treasuries;
+
+    @ManyToMany
+    Set<EntryReceive> entryReceives;
+
+    @OneToMany(mappedBy="entryPay")
+    private Set<PayWriteOff> payWriteOffs;
+
+    @OneToOne(mappedBy = "entryPay")
+    private PaymentForm paymentForm;
+
+    @ManyToOne
+    @JoinColumn(name="company_id", nullable=false)
+    private Company company;
 }

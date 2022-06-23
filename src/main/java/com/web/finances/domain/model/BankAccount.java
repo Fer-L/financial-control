@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "BANK_ACCOUNT_TB")
@@ -44,4 +45,7 @@ public class BankAccount {
 
     @NotNull
     private Long bank;
+
+    @OneToMany(mappedBy="bankAccount")
+    private Set<AccountChart> accountChartSet;
 }

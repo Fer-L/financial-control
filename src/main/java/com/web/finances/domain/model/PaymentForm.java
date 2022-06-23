@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-// import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-// import javax.validation.constraints.NotNull;
-// import java.time.LocalDate;
-
+import java.util.Set;
 @Entity
 @Table(name = "ENTRY_PAY_TB")
 @Getter
@@ -21,4 +18,15 @@ public class PaymentForm {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String description;
+
+    @ManyToMany
+    Set<Treasury> treasurySet;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "entryPay_id", referencedColumnName = "id")
+    private EntryPay entryPay;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "payWriteOff_id", referencedColumnName = "id")
+    private PayWriteOff payWriteOff;
 }

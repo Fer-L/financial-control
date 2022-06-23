@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "COMPANY_TB")
 @Getter
@@ -53,5 +55,12 @@ public class Company {
     @NotNull
     private String cpf;
 
+    @OneToMany(mappedBy="company")
+    private Set<EntryPay> entryPays;
 
+    @OneToMany(mappedBy="company")
+    private Set<EntryReceive> entryReceives;
+
+    @OneToMany(mappedBy="company")
+    private Set<EntryPay> entryPaysCompany;
 }

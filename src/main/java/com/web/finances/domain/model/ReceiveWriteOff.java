@@ -38,4 +38,7 @@ public class ReceiveWriteOff {
 
     @NotNull
     private String residual;
+
+    @OneToOne(mappedBy = "receiveWriteOff")
+    private EntryReceive entryReceive;
 }
