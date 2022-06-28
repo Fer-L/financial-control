@@ -21,11 +21,7 @@ import java.util.Set;
 public class Company {
 
     @Id
-    @GenericGenerator(name = "seq_gen", 
-      strategy = "increment")
-    @GeneratedValue(
-      strategy = GenerationType.AUTO, 
-      generator = "seq_gen")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull

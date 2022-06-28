@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 @Entity
 @Table(name = "ENTRY_PAY_TB")
@@ -17,6 +18,9 @@ public class PaymentForm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @NotNull
     private String description;
 
     @ManyToMany
