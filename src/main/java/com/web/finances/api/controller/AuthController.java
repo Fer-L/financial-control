@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.web.finances.api.dto.JwtResponse;
 import com.web.finances.api.dto.LoginDTO;
 import com.web.finances.domain.model.Users;
-import com.web.finances.domain.repository.UserRepository;
+import com.web.finances.domain.repository.UsersRepository;
 import com.web.finances.domain.security.TokenAuthenticationService;
 
 @RestController
@@ -26,7 +26,7 @@ public class AuthController {
   PasswordEncoder encoder;
 
   @Autowired
-  private UserRepository rep;
+  private UsersRepository rep;
 
   @PostMapping
   public ResponseEntity<Object> autenticarUsuario(@RequestBody LoginDTO login) {

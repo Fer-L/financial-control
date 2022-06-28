@@ -10,14 +10,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.web.finances.domain.model.Users;
-import com.web.finances.domain.repository.UserRepository;
+import com.web.finances.domain.repository.UsersRepository;
 
 @Component
 public class CustomUserDetailsService 
   implements UserDetailsService {
 
   @Autowired
-  private UserRepository rep;
+  private UsersRepository rep;
 
   @Override
   public UserDetails loadUserByUsername(
