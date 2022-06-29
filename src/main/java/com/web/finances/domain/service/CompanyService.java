@@ -20,13 +20,13 @@ public class CompanyService {
     public List<CompanyDTO> listAll() {
         List<CompanyDTO> companyDTOSList = new ArrayList<>();
         repository.findAll()
-                .forEach(expense -> companyDTOSList.add(expense.toDto()));
+                .forEach(company -> companyDTOSList.add(company.toDto()));
         return companyDTOSList;
     }
 
     public ResponseEntity<CompanyDTO> listById(Long id) {
         return repository.findById(id)
-                .map(expense -> ResponseEntity.ok().body(expense.toDto())
+                .map(company -> ResponseEntity.ok().body(company.toDto())
                 ).orElse(ResponseEntity.notFound().build());
     }
 
