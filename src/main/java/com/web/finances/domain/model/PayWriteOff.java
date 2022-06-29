@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.PayWriteOffDTO;
+import com.web.finances.api.dto.PaymentFormDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,4 +46,8 @@ public class PayWriteOff {
 
     @OneToOne(mappedBy = "payWriteOff")
     private PaymentForm paymentForm;
+
+    public PayWriteOffDTO toDto() {
+        return new PayWriteOffDTO(this);
+    }
 }

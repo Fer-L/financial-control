@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.EntryReceiveDTO;
+import com.web.finances.api.dto.PaymentFormDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,4 +35,8 @@ public class PaymentForm {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payWriteOff_id", referencedColumnName = "id")
     private PayWriteOff payWriteOff;
+
+    public PaymentFormDTO toDto() {
+        return new PaymentFormDTO(this);
+    }
 }

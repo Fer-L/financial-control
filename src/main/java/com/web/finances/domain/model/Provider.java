@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.PayWriteOffDTO;
+import com.web.finances.api.dto.ProviderDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,4 +51,7 @@ public class Provider {
     @JoinColumn(name = "entryReceive_id", referencedColumnName = "id")
     private EntryReceive entryReceive;
 
+    public ProviderDTO toDto() {
+        return new ProviderDTO(this);
+    }
 }

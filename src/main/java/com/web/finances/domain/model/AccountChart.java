@@ -1,5 +1,6 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.AccountChartDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,5 +50,9 @@ public class AccountChart {
 
     @OneToMany(mappedBy="accountChart")
     private Set<Treasury> treasurySet;
+
+    public AccountChartDTO toDto() {
+        return new AccountChartDTO(this);
+    }
 }
 

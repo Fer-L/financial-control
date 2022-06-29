@@ -1,0 +1,2 @@
+insert into COMPANY_TB (id, corporate_name, cnpj, address, county, zip_code, phone, mail, titular_name, cpf) values (1, 'Pedro piramides', '61195566000100', 'Baker Street', 'Bullock', '00765', '202-555-0135', 'corpporp@corp.com', 'Peter smith', '08149482008');
+insert into COMPANY_TB (id, corporate_name, cnpj, address, county, zip_code, phone, mail, titular_name, cpf) values (2, 'Davi Auto peças', '28768640000165', 'Street flowers', 'Chilton', '86081', '202-555-0135', 'davicorp@corp.com', 'Davi Jones', '81344787002');

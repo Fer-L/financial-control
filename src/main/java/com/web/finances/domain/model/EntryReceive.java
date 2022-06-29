@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.EntryPayDTO;
+import com.web.finances.api.dto.EntryReceiveDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,4 +56,8 @@ public class EntryReceive {
     @ManyToOne
     @JoinColumn(name="company_id", nullable=false)
     private Company company;
+
+    public EntryReceiveDTO toDto() {
+        return new EntryReceiveDTO(this);
+    }
 }

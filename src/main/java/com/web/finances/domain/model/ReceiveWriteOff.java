@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.ProviderDTO;
+import com.web.finances.api.dto.ReceiveWriteOffDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,4 +43,8 @@ public class ReceiveWriteOff {
 
     @OneToOne(mappedBy = "receiveWriteOff")
     private EntryReceive entryReceive;
+
+    public ReceiveWriteOffDTO toDto() {
+        return new ReceiveWriteOffDTO(this);
+    }
 }

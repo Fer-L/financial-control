@@ -5,16 +5,12 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.web.finances.domain.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.web.finances.api.dto.CompanyDTO;
 import com.web.finances.domain.model.Company;
@@ -26,23 +22,36 @@ import com.web.finances.domain.repository.CompanyRepository;
 public class CompanyController {
 
     @Autowired
-    private CompanyRepository rep;
+    CompanyService service;
 
     @GetMapping
-    public List<Company> index() {
-        return rep.findAll();
+    public List<CompanyDTO> listAll(){
+        return service.listAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> get(@PathVariable Long id) {
-        Optional<Company> _company = rep.findById(id);
+    public ResponseEntity<CompanyDTO> listById(@PathVariable Long id){
+        return service.listById(id);
+    }
 
-        if (_company.isEmpty()) {
-            return ResponseEntity.status(
-                    HttpStatus.NOT_FOUND).body("body");
-        }
+    @PostMapping("/new")
+    public ResponseEntity<CompanyDTO> create(@RequestBody Company company) {
+        return service.create(company);
+    }
 
-        return ResponseEntity.ok().body(_company);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteById(@PathVariable Long id) {
+        return service.deleteById(id);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<CompanyDTO> update(@RequestBody Company company) {
+        return service.update(company);
+    }
+
+    @GetMapping("find/{id}")
+    public ResponseEntity<CompanyDTO> findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 
     // @PostMapping
@@ -53,22 +62,4 @@ public class CompanyController {
     //     return ResponseEntity.ok(_Company);
 
     // }
-
-    @PostMapping
-    public ResponseEntity<Company> salvar(
-            @RequestBody @Valid CompanyDTO dto) {
-        Company _newCompany = new Company();
-        _newCompany.setCorporateName(dto.getCorporateName());
-        _newCompany.setCnpj(dto.getCnpj());
-        _newCompany.setAddress(dto.getAddress());
-        _newCompany.setCounty(dto.getCounty());
-        _newCompany.setZipCode(dto.getZipCode());
-        _newCompany.setPhone(dto.getPhone());
-        _newCompany.setMail(dto.getMail());
-        _newCompany.setTitularName(dto.getTitularName());
-        _newCompany.setCpf(dto.getCpf());
-
-        _newCompany = rep.save(_newCompany);
-        return ResponseEntity.ok().body(_newCompany);
-    }
 }

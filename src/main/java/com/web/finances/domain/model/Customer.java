@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.CompanyDTO;
+import com.web.finances.api.dto.CustomerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,4 +46,8 @@ public class Customer {
 
     @OneToMany(mappedBy="customer")
     private Set<EntryReceive> entryReceives;
+
+    public CustomerDTO toDto() {
+        return new CustomerDTO(this);
+    }
 }
