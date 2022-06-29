@@ -36,12 +36,10 @@ public class CompanyController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> get(@PathVariable Long id) {
         Optional<Company> _company = rep.findById(id);
-
         if (_company.isEmpty()) {
             return ResponseEntity.status(
                     HttpStatus.NOT_FOUND).body("body");
         }
-
         return ResponseEntity.ok().body(_company);
     }
 
