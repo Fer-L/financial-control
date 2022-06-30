@@ -1,20 +1,18 @@
 package com.web.finances.api.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
 import com.web.finances.api.dto.CompanyDTO;
 import com.web.finances.domain.model.Company;
+import com.web.finances.domain.service.CompanyService;
 
-import com.web.finances.domain.repository.CompanyRepository;
 
 @RestController
 @RequestMapping("/company")
@@ -39,7 +37,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteById(@PathVariable Long id) {
+    public ResponseEntity<?> deleteById(@PathVariable Long id) {
         return service.deleteById(id);
     }
 

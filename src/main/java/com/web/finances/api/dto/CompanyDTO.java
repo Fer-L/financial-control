@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CompanyDTO {
+    private Long id;
     private String corporateName;
     private String cnpj;
     private String address;
@@ -17,6 +18,7 @@ public class CompanyDTO {
     private String cpf;
 
     public CompanyDTO(Company company) {
+        this.id = company.getId();
         this.corporateName = company.getCorporateName();
         this.cnpj = company.getCnpj();
         this.address = company.getAddress();
