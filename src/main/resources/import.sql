@@ -3,3 +3,6 @@ insert into company_tb (id, corporate_name, cnpj, address, county, zip_code, pho
 
 insert into bank_account_tb (id, account_number, agency_number, bank, classification, description, inicial_balance, inicial_balance_date) values (1, '6559', 1441, 103, 'Bank', 'Its an account bank', 1.0, '1999-01-08');
 insert into bank_account_tb (id, account_number, agency_number, bank, classification, description, inicial_balance, inicial_balance_date) values (2, '7894', 1442, 958, 'Bank', 'Its an account bank', 1.0, '2005-01-23');
+
+insert into account_chart_tb (id, account_type, bank, classification, description, resource_departure, resource_entry, bank_account_id) values (1, 'physical', 1442, 'bank','Another account', '2022-01-23', '2022-05-08', 6);
+insert into account_chart_tb (id, account_type, bank, classification, description, resource_departure, resource_entry, bank_account_id) values (2, 'physical', 1332, 'bank','Just another account', '2021-05-12', '2022-11-16', 7);
