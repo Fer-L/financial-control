@@ -46,10 +46,12 @@ public class BankAccount {
     private BigDecimal inicialBalance;
 
     @NotNull
-    private Long bank;
+    private String cnpjCompany;
 
     @NotNull
-    private String cnpjCompany;
+    private Long bank;
+
+
 
     @OneToMany(mappedBy="bankAccount")
     private Set<AccountChart> accountChartSet;

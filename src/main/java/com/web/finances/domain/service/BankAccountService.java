@@ -58,6 +58,8 @@ public class BankAccountService {
                     oldBankAccount.setInicialBalanceDate(bankAccount.getInicialBalanceDate());
                     oldBankAccount.setInicialBalance(bankAccount.getInicialBalance());
                     oldBankAccount.setBank(bankAccount.getBank());
+                    oldBankAccount.setCnpjCompany(bankAccount.getCnpjCompany());
+
 
                     return new ResponseEntity<>(repository.save(oldBankAccount).toDto(), HttpStatus.CREATED);
                 })
