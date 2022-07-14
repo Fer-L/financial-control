@@ -17,6 +17,7 @@ public class BankAccountDTO {
     private LocalDate inicialBalanceDate;
     private BigDecimal inicialBalance;
     private Long bank;
+    private String cnpjCompany;
 
     public BankAccountDTO(BankAccount bankAccount) {
         this.id = bankAccount.getId();
@@ -27,5 +28,6 @@ public class BankAccountDTO {
         this.inicialBalanceDate = bankAccount.getInicialBalanceDate();
         this.inicialBalance = bankAccount.getInicialBalance();
         this.bank = bankAccount.getBank();
+        this.cnpjCompany = bankAccount.getCnpjCompany();
     }
 }

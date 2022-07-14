@@ -48,6 +48,9 @@ public class BankAccount {
     @NotNull
     private Long bank;
 
+    @NotNull
+    private String cnpjCompany;
+
     @OneToMany(mappedBy="bankAccount")
     private Set<AccountChart> accountChartSet;
 
