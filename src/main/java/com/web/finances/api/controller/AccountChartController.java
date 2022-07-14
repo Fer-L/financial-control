@@ -1,9 +1,7 @@
 package com.web.finances.api.controller;
 
 import com.web.finances.api.dto.AccountChartDTO;
-import com.web.finances.api.dto.CompanyDTO;
 import com.web.finances.domain.model.AccountChart;
-import com.web.finances.domain.model.Company;
 import com.web.finances.domain.service.AccountChartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +17,12 @@ public class AccountChartController {
     AccountChartService service;
 
     @GetMapping
-    public List<AccountChartDTO> listAll(){
+    public List<AccountChartDTO> listAll() {
         return service.listAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AccountChartDTO> listById(@PathVariable Long id){
+    public ResponseEntity<AccountChartDTO> listById(@PathVariable Long id) {
         return service.listById(id);
     }
 
@@ -47,6 +45,5 @@ public class AccountChartController {
     public ResponseEntity<AccountChartDTO> findById(@PathVariable Long id) {
         return service.findById(id);
     }
-
 
 }
