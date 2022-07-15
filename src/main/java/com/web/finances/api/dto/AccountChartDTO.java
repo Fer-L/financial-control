@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class AccountChartDTO {
+    private long id;
     private String classification;
     private String accountType;
     private String description;
@@ -16,6 +17,7 @@ public class AccountChartDTO {
     private LocalDate resourceDeparture;
 
     public AccountChartDTO(AccountChart accountChart) {
+        this.id = accountChart.getId();
         this.classification = accountChart.getClassification();
         this.accountType = accountChart.getAccountType();
         this.description = accountChart.getDescription();
