@@ -11,7 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 @Entity
-@Table(name = "ENTRY_PAY_TB")
+@Table(name = "PAYMENT_FORM_TB")
 @Getter
 @Setter
 @AllArgsConstructor
