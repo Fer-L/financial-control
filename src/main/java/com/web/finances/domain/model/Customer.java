@@ -1,6 +1,5 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.CompanyDTO;
 import com.web.finances.api.dto.CustomerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-    //parceiro
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

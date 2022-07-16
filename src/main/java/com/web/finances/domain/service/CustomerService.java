@@ -3,6 +3,7 @@ package com.web.finances.domain.service;
 import com.web.finances.api.dto.CustomerDTO;
 import com.web.finances.domain.model.Customer;
 import com.web.finances.domain.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 public class CustomerService {
 
+    @Autowired
     CustomerRepository repository;
 
     public List<CustomerDTO> listAll() {
