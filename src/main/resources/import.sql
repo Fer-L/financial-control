@@ -19,3 +19,9 @@ description, resource_departure, resource_entry, bank_account_id)
  values ( 'physical', 1442, 'bank','Another account', '2022-01-23', '2022-05-08', 1);
 
 insert into account_chart_tb (id, account_type, bank, classification, description, resource_departure, resource_entry, bank_account_id) values ('physical', 1332, 'bank','Just another account', '2021-05-12', '2022-11-16', 7);
+
+insert into provider_tb (id, address, cnpj_cpf, corporate_name, county, mail, phone, zip_code) values (1, 'Colorful Street', '24405357000118', 'James Esfirras','Alabama', 'esfirras@corporation.com', '202-555-0119', '09456');
+insert into provider_tb (id, address, cnpj_cpf, corporate_name, county, mail, phone, zip_code) values (2, 'Sunset Street', '91410886000105', 'Pedro Pedrinhas','Bibb', 'pedrinhas@corporation.com', '202-555-0140', '30603');
+
+insert into customer_tb (id, address, cnpj_cpf, corporate_name, county, mail, phone, zip_code) values (1, 'Live Street', '66981350033', 'Lucas', 'Lumpkin', 'lucas@gmail.com', '+1-202-555-0130', '83585');
+insert into customer_tb (id, address, cnpj_cpf, corporate_name, county, mail, phone, zip_code) values (1, 'Pop Street', '35725344029', 'Julia', 'Orange', 'julia@outlook.com', '+1-202-555-0116', '18113');
