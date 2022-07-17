@@ -7,12 +7,14 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class EntryPayDTO {
+    private Long id;
     private String docNumber;
     private Long titleValue;
     private LocalDate dueDate;
     private LocalDate emissionDate;
 
     public EntryPayDTO(EntryPay entryPay) {
+        this.id = entryPay.getId();
         this.docNumber = entryPay.getDocNumber();
         this.titleValue = entryPay.getTitleValue();
         this.dueDate = entryPay.getDueDate();
