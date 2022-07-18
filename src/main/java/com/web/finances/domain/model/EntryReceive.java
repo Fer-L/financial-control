@@ -20,7 +20,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EntryReceive {
-
+    //usei como contas a pagar
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

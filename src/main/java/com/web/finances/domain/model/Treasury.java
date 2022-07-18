@@ -26,7 +26,7 @@ public class Treasury {
     private Long id;
 
     @NotNull
-    private Long value;
+    private double value;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -40,13 +40,11 @@ public class Treasury {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate availabilityDate;
 
-    @ManyToOne
-    @JoinColumn(name="accountChart_id", nullable=false)
-    private AccountChart accountChart;
+    @NotNull
+    private Long accountChart;
 
-    @ManyToOne
-    @JoinColumn(name="provider_id", nullable=false)
-    private Provider provider;
+    @NotNull
+    private Long provider;
 
     @ManyToMany
     Set<EntryPay> entryPays;
