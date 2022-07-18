@@ -1,8 +1,8 @@
 package com.web.finances.api.controller;
 
-import com.web.finances.api.dto.TreasuryDTO;
-import com.web.finances.domain.model.Treasury;
-import com.web.finances.domain.service.TreasuryService;
+import com.web.finances.api.dto.ProductsDTO;
+import com.web.finances.domain.model.Products;
+import com.web.finances.domain.service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 public class ProductsController {
-
-
     @Autowired
-    TreasuryService service;
+    ProductsService service;
 
     @GetMapping
-    public List<TreasuryDTO> listAll(){
+    public List<ProductsDTO> listAll(){
         return service.listAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TreasuryDTO> listById(@PathVariable Long id){
+    public ResponseEntity<ProductsDTO> listById(@PathVariable Long id){
         return service.listById(id);
     }
 
     @PostMapping("/new")
-    public ResponseEntity<TreasuryDTO> create(@RequestBody Treasury treasury) {
-        return service.create(treasury);
+    public ResponseEntity<ProductsDTO> create(@RequestBody Products products) {
+        return service.create(
+                products
+        );
     }
 
     @DeleteMapping("/delete/{id}")
@@ -36,15 +36,13 @@ public class ProductsController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<TreasuryDTO> update(@RequestBody  Treasury treasury) {
-        return service.update(treasury);
+    public ResponseEntity<ProductsDTO> update(@RequestBody  Products products) {
+        return service.update(products);
     }
 
     @GetMapping("find/{id}")
-    public ResponseEntity<TreasuryDTO> findById(@PathVariable Long id) {
+    public ResponseEntity<ProductsDTO> findById(@PathVariable Long id) {
         return service.findById(id);
     }
-
-
-
+    
 }
