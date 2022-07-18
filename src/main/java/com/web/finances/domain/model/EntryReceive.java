@@ -29,7 +29,7 @@ public class EntryReceive {
     private String docNumber;
 
     @NotNull
-    private Long titleValue;
+    private double titleValue;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")

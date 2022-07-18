@@ -10,7 +10,7 @@ public class PayWriteOffDTO {
     private String bank;
     private String availability;
     private LocalDate dischargeDate;
-    private Long paidValue;
+    private double paidValue;
     private String residual;
 
     public PayWriteOffDTO(PayWriteOff payWriteOff) {

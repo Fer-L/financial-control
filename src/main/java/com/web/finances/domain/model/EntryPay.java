@@ -29,7 +29,13 @@ public class EntryPay {
     private String docNumber;
 
     @NotNull
-    private Long titleValue;
+    private double titleValue;
+
+    @NotNull
+    private Long companyId;
+
+    @NotNull
+    private Long customerId;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -51,9 +57,6 @@ public class EntryPay {
     @OneToOne(mappedBy = "entryPay")
     private PaymentForm paymentForm;
 
-    @ManyToOne
-    @JoinColumn(name="company_id", nullable=false)
-    private Company company;
 
     public EntryPayDTO toDto() {
         return new EntryPayDTO(this);

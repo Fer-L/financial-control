@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Setter
 public class EntryReceiveDTO {
     private String docNumber;
-    private Long titleValue;
+    private double titleValue;
     private LocalDate dueDate;
     private LocalDate emissionDate;
 

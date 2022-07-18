@@ -35,7 +35,7 @@ public class PayWriteOff {
     private LocalDate dischargeDate;
 
     @NotNull
-    private Long paidValue;
+    private double paidValue;
 
     @NotNull
     private String residual;

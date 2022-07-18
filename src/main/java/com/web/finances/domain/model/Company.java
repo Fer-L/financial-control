@@ -53,14 +53,10 @@ public class Company {
     @NotNull
     private String cpf;
 
-    @OneToMany(mappedBy="company")
-    private Set<EntryPay> entryPays;
 
     @OneToMany(mappedBy="company")
     private Set<EntryReceive> entryReceives;
 
-    @OneToMany(mappedBy="company")
-    private Set<EntryPay> entryPaysCompany;
 
     public CompanyDTO toDto() {
         return new CompanyDTO(this);
