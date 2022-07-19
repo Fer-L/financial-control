@@ -44,5 +44,5 @@ public class ProductsController {
     public ResponseEntity<ProductsDTO> findById(@PathVariable Long id) {
         return service.findById(id);
     }
-    
+
 }
