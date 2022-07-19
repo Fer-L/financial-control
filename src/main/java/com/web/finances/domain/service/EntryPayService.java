@@ -56,8 +56,8 @@ public class EntryPayService {
                     oldEntryPay.setTitleValue(entryPay.getTitleValue());
                     oldEntryPay.setDueDate(entryPay.getDueDate());
                     oldEntryPay.setEmissionDate(entryPay.getEmissionDate());
-                    oldEntryPay.setCompanyId(entryPay.getCompanyId());
-                    oldEntryPay.setCustomerId(entryPay.getCustomerId());
+                    oldEntryPay.setCompany(entryPay.getCompany());
+                    oldEntryPay.setCustomer(entryPay.getCustomer());
 
                     return new ResponseEntity<>(repository.save(oldEntryPay).toDto(), HttpStatus.CREATED);
                 })

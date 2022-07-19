@@ -12,6 +12,8 @@ public class EntryReceiveDTO {
     private LocalDate dueDate;
     private LocalDate emissionDate;
 
+
+
     public EntryReceiveDTO(EntryReceive entryReceive) {
         this.docNumber = entryReceive.getDocNumber();
         this.titleValue = entryReceive.getTitleValue();

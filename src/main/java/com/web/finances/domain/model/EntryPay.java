@@ -31,11 +31,14 @@ public class EntryPay {
     @NotNull
     private double titleValue;
 
-    @NotNull
-    private Long companyId;
+    @ManyToOne
+    @JoinColumn(name="company_id", nullable=false)
+    private Company company;
 
-    @NotNull
-    private Long customerId;
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable=false)
+    private Customer customer;
+
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
