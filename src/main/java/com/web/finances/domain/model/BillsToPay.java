@@ -1,6 +1,6 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.EntryPayDTO;
+import com.web.finances.api.dto.BillsToPayDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +13,13 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "ENTRY_PAY_TB")
+@Table(name = "BILLS_TO_PAY_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EntryPay {
-    //usei como contas a receber
+public class BillsToPay {
+    //usei como contas a pagar
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -35,8 +35,8 @@ public class EntryPay {
     private Company company;
 
     @ManyToOne
-    @JoinColumn(name="customer_id", nullable=false)
-    private Customer customer;
+    @JoinColumn(name="provider_id", nullable=false)
+    private Provider provider;
 
 
     @NotNull
@@ -47,20 +47,21 @@ public class EntryPay {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emissionDate;
 
-    @ManyToMany
-    Set<Treasury> treasuries;
+//    @ManyToMany
+//    Set<Treasury> treasuries;
+//
+//    @ManyToMany
+//    Set<EntryReceive> entryReceives;
+//
+//    @OneToMany(mappedBy="entryPay")
+//    private Set<PayWriteOff> payWriteOffs;
+//
+//    @OneToOne(mappedBy = "entryPay")
+//    private PaymentForm paymentForm;
 
-    @ManyToMany
-    Set<EntryReceive> entryReceives;
 
-    @OneToMany(mappedBy="entryPay")
-    private Set<PayWriteOff> payWriteOffs;
-
-    @OneToOne(mappedBy = "entryPay")
-    private PaymentForm paymentForm;
-
-
-    public EntryPayDTO toDto() {
-        return new EntryPayDTO(this);
+    public BillsToPayDTO toDto() {
+        return new BillsToPayDTO(this);
     }
+
 }
