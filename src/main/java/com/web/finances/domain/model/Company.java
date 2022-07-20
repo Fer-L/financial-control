@@ -54,8 +54,8 @@ public class Company {
     private String cpf;
 
 
-    @OneToMany(mappedBy="company")
-    private Set<EntryReceive> entryReceives;
+//    @OneToMany(mappedBy="company")
+//    private Set<EntryReceive> entryReceives;
 
 
     public CompanyDTO toDto() {

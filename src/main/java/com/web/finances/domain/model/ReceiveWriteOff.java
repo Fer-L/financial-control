@@ -41,8 +41,8 @@ public class ReceiveWriteOff {
     @NotNull
     private String residual;
 
-    @OneToOne(mappedBy = "receiveWriteOff")
-    private EntryReceive entryReceive;
+//    @OneToOne(mappedBy = "receiveWriteOff")
+//    private EntryReceive entryReceive;
 
     public ReceiveWriteOffDTO toDto() {
         return new ReceiveWriteOffDTO(this);

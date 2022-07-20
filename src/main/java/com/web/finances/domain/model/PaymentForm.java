@@ -25,16 +25,6 @@ public class PaymentForm {
     @NotNull
     private String description;
 
-    @ManyToMany
-    Set<Treasury> treasurySet;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "entryPay_id", referencedColumnName = "id")
-    private EntryPay entryPay;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "payWriteOff_id", referencedColumnName = "id")
-    private PayWriteOff payWriteOff;
 
     public PaymentFormDTO toDto() {
         return new PaymentFormDTO(this);

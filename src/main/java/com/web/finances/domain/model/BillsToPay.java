@@ -38,7 +38,6 @@ public class BillsToPay {
     @JoinColumn(name="provider_id", nullable=false)
     private Provider provider;
 
-
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dueDate;
@@ -46,19 +45,6 @@ public class BillsToPay {
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emissionDate;
-
-//    @ManyToMany
-//    Set<Treasury> treasuries;
-//
-//    @ManyToMany
-//    Set<EntryReceive> entryReceives;
-//
-//    @OneToMany(mappedBy="entryPay")
-//    private Set<PayWriteOff> payWriteOffs;
-//
-//    @OneToOne(mappedBy = "entryPay")
-//    private PaymentForm paymentForm;
-
 
     public BillsToPayDTO toDto() {
         return new BillsToPayDTO(this);

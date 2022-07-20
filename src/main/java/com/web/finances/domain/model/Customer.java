@@ -43,8 +43,8 @@ public class Customer {
     @NotNull
     private String mail;
 
-    @OneToMany(mappedBy="customer")
-    private Set<EntryReceive> entryReceives;
+//    @OneToMany(mappedBy="customer")
+//    private Set<EntryReceive> entryReceives;
 
     public CustomerDTO toDto() {
         return new CustomerDTO(this);

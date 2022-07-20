@@ -46,11 +46,7 @@ public class Treasury {
     @NotNull
     private Long provider;
 
-    @ManyToMany
-    Set<EntryPay> entryPays;
 
-    @ManyToMany
-    Set<PaymentForm> paymentForms;
 
     public TreasuryDTO toDto() {
         return new TreasuryDTO(this);

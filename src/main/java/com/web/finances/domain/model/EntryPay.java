@@ -47,17 +47,6 @@ public class EntryPay {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emissionDate;
 
-    @ManyToMany
-    Set<Treasury> treasuries;
-
-    @ManyToMany
-    Set<EntryReceive> entryReceives;
-
-    @OneToMany(mappedBy="entryPay")
-    private Set<PayWriteOff> payWriteOffs;
-
-    @OneToOne(mappedBy = "entryPay")
-    private PaymentForm paymentForm;
 
 
     public EntryPayDTO toDto() {

@@ -19,7 +19,7 @@ public class BillsToPayDTO {
     private Provider provider;
 
     public BillsToPayDTO(BillsToPay billsToPay) {
-        this.id = billsToPay.toDto().getId();
+        this.id = billsToPay.getId();
         this.docNumber = billsToPay.getDocNumber();
         this.titleValue = billsToPay.getTitleValue();
         this.dueDate = billsToPay.getDueDate();

@@ -39,23 +39,26 @@ public class EntryReceive {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emissionDate;
 
-    @ManyToMany
-    Set<EntryPay> entryPays;
-
-    @OneToOne(mappedBy = "entryReceive")
-    private Provider provider;
-
-    @ManyToOne
-    @JoinColumn(name="customer_id", nullable=false)
-    private Customer customer;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "receiveWriteOff_id", referencedColumnName = "id")
-    private ReceiveWriteOff receiveWriteOff;
-
-    @ManyToOne
-    @JoinColumn(name="company_id", nullable=false)
-    private Company company;
+//    @ManyToMany
+//    Set<EntryPay> entryPays;
+//
+//    @ManyToMany
+//    Set<BillsToPay> billsToPays;
+//
+//    @OneToOne(mappedBy = "entryReceive")
+//    private Provider provider;
+//
+//    @ManyToOne
+//    @JoinColumn(name="customer_id", nullable=false)
+//    private Customer customer;
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "receiveWriteOff_id", referencedColumnName = "id")
+//    private ReceiveWriteOff receiveWriteOff;
+//
+//    @ManyToOne
+//    @JoinColumn(name="company_id", nullable=false)
+//    private Company company;
 
     public EntryReceiveDTO toDto() {
         return new EntryReceiveDTO(this);

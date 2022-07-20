@@ -40,12 +40,12 @@ public class PayWriteOff {
     @NotNull
     private String residual;
 
-    @ManyToOne
-    @JoinColumn(name="entryPay_id", nullable=false)
-    private EntryPay entryPay;
-
-    @OneToOne(mappedBy = "payWriteOff")
-    private PaymentForm paymentForm;
+//    @ManyToOne
+//    @JoinColumn(name="entryPay_id", nullable=false)
+//    private EntryPay entryPay;
+//
+//    @OneToOne(mappedBy = "payWriteOff")
+//    private PaymentForm paymentForm;
 
     public PayWriteOffDTO toDto() {
         return new PayWriteOffDTO(this);
