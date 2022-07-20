@@ -29,7 +29,7 @@ public class Inventory {
     private int qtde;
 
     @ManyToOne
-    @JoinColumn(name="provider_id", nullable=false)
+    @JoinColumn(name="products_id", nullable=false)
     private Products products;
 
     public InventoryDTO toDto() {
