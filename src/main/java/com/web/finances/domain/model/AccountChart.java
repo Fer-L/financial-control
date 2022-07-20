@@ -34,18 +34,12 @@ public class AccountChart {
     private String description;
 
     @NotNull
-    private Long bank;
+    private Long aspect;
 
-    @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate resourceEntry;
 
-    @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate resourceDeparture;
 
     @ManyToOne
-    @JoinColumn(name="bankAccount_id", nullable=false)
+    @JoinColumn(name="bankAccount_id", nullable=true)
     private BankAccount bankAccount;
 
     @OneToMany(mappedBy="accountChart")

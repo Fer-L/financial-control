@@ -53,9 +53,8 @@ public class AccountChartService {
                     oldAccountChart.setClassification(accountChart.getClassification());
                     oldAccountChart.setAccountType(accountChart.getAccountType());
                     oldAccountChart.setDescription(accountChart.getDescription());
-                    oldAccountChart.setBank(accountChart.getBank());
-                    oldAccountChart.setResourceEntry(accountChart.getResourceEntry());
-                    oldAccountChart.setResourceDeparture(accountChart.getResourceDeparture());
+                    oldAccountChart.setAspect(accountChart.getAspect());
+                    oldAccountChart.setBankAccount(accountChart.getBankAccount());
 
                     return new ResponseEntity<>(repository.save(oldAccountChart).toDto(), HttpStatus.CREATED);
                 })

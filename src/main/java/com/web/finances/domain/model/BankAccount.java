@@ -51,8 +51,6 @@ public class BankAccount {
     @NotNull
     private Long bank;
 
-    @OneToMany(mappedBy="bankAccount")
-    private Set<AccountChart> accountChartSet;
 
     public BankAccountDTO toDto() {
         return new BankAccountDTO(this);
