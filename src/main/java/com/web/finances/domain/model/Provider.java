@@ -1,6 +1,5 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.PayWriteOffDTO;
 import com.web.finances.api.dto.ProviderDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

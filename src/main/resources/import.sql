@@ -5,7 +5,7 @@ insert into company_tb (id, corporate_name, cnpj, address, county, zip_code, pho
 
 insert into bank_account_tb (id,account_number, agency_number, bank, classification, description, inicial_balance, inicial_balance_date, cnpj_Company) values (1,'6559', 1441, 103, 'BV BANK', 'Crédito', 1.0, '1999-01-08', '00.000.000/0001-02');
 
-insert into account_chart_tb (id, account_type, aspect, classification, description, bank_account_id) values (1,'1', 1, '1','1',1);
+insert into account_chart_tb (id, account_type, aspect, classification, description, bank_account_id) values (1,'1', 1, '1','Ativos',1);
 
 insert into customer_tb (id, address, cnpj_cpf, corporate_name, county, mail, phone, zip_code) values (1, 'Live Street', '66981350033', 'Lucas', 'Lumpkin', 'lucas@gmail.com', '+1-202-555-0130', '83585');
 insert into customer_tb (id, address, cnpj_cpf, corporate_name, county, mail, phone, zip_code) values (2, 'Pop Street', '35725344029', 'Julia', 'Orange', 'julia@outlook.com', '+1-202-555-0116', '18113');

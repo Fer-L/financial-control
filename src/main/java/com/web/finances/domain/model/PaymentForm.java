@@ -1,6 +1,5 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.EntryReceiveDTO;
 import com.web.finances.api.dto.PaymentFormDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

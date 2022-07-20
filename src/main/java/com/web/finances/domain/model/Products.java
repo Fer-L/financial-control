@@ -27,17 +27,18 @@ public class Products {
     private double value;
 
     @NotNull
-    private Long qtde;
-
-    @NotNull
     private String nameProduct;
 
     @NotNull
     private String description;
 
-    @NotNull
-    private Long provider;
+    @ManyToOne
+    @JoinColumn(name="company_id", nullable=false)
+    private Company company;
 
+    @ManyToOne
+    @JoinColumn(name="provider_id", nullable=true)
+    private Provider provider;
 
     public ProductsDTO toDto() {
         return new ProductsDTO(this);

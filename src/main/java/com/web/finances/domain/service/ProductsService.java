@@ -1,19 +1,18 @@
 package com.web.finances.domain.service;
 
-
 import com.web.finances.api.dto.ProductsDTO;
 import com.web.finances.domain.model.Products;
 import com.web.finances.domain.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class ProductsService {
-
     @Autowired
     ProductsRepository repository;
 
@@ -52,9 +51,9 @@ public class ProductsService {
         return repository.findById(products.getId())
                 .map(oldProducts -> {
                     oldProducts.setValue(products.getValue());
-                    oldProducts.setQtde(products.getQtde());
                     oldProducts.setNameProduct(products.getNameProduct());
                     oldProducts.setDescription(products.getDescription());
+                    oldProducts.setCompany(products.getCompany());
                     oldProducts.setProvider(products.getProvider());
 
                     return new ResponseEntity<>(repository.save(oldProducts).toDto(), HttpStatus.CREATED);
