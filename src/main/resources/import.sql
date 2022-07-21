@@ -3,7 +3,7 @@ insert  into users_tb (id, name, "password", username) values (1,'leandro vargas
 insert into company_tb (id, corporate_name, cnpj, address, county, zip_code, phone, mail, titular_name, cpf) values (1,'Pedro piramides', '00.000.000/0001-02', 'Baker Street', 'Bullock', '00765', '202-555-0135', 'corpporp@corp.com', 'Peter smith', '08149482008');
 insert into company_tb (id, corporate_name, cnpj, address, county, zip_code, phone, mail, titular_name, cpf)values (2, 'Davi Auto peças', '28768640000165', 'Street flowers','Chilton', '86081', '202-555-0135', 'davicorp@corp.com', 'Davi Jones', '81344787002');
 
-insert into bank_account_tb (id,account_number, agency_number, bank, classification, description, inicial_balance, inicial_balance_date, cnpj_Company) values (1,'6559', 1441, 103, 'BV BANK', 'Crédito', 1.0, '1999-01-08', '00.000.000/0001-02');
+insert into bank_account_tb (id,account_number, agency_number, bank, classification, description, inicial_balance, inicial_balance_date, cnpj_Company) values (1,'6559', 1441, 103, 'Crédito', 'BV BANK', 1.0, '1999-01-08', '00.000.000/0001-02');
 
 insert into account_chart_tb (id, account_type, aspect, classification, description, bank_account_id) values (1,'1', 1, '1','Ativos',1);
 
@@ -20,5 +20,12 @@ insert into payment_form_tb (id, description) values (3, 'Cartão/Crédito');
 insert into payment_form_tb (id, description) values (4, 'Pix');
 insert into payment_form_tb (id, description) values (5, 'Boleto');
 
+insert into entry_pay_tb (id, doc_number, emission_date ,due_date, title_value, company_id, customer_id) values (1, 'ab 12456878', '2022-07-01', '2022-01-01', 50.05, 1, 1);
 
+insert into bills_to_pay_tb (id, doc_number, emission_date ,due_date, title_value, company_id, provider_id) values (1, 'ab 12456878', '2022-07-01', '2022-01-01', 50.05, 1, 1);
 
+insert into products_tb (id,company_id, provider_id, description, name_product,value) values (1, 1, 1,'Pacote 1kg','Café',17.5 );
+
+insert into inventory_tb (id,products_id, qtde, estimated_sale_price) values (1, 1, 8 ,20.7 );
+
+insert into tax_tb (id,"percent", name_tax, "scope") values (1, 17.5 , 'ICMS','Estadual' );
