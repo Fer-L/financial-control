@@ -9,6 +9,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -39,6 +41,7 @@ public class Products {
     @ManyToOne
     @JoinColumn(name="provider_id", nullable=true)
     private Provider provider;
+
 
     public ProductsDTO toDto() {
         return new ProductsDTO(this);
