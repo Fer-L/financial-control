@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
-
 @Entity
 @Table(name = "SALE_TB")
 @Getter
@@ -21,7 +20,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Sale {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -37,9 +35,13 @@ public class Sale {
     @JoinColumn(name="customer_id", nullable=false)
     private Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name="tax_id", nullable=false)
+    private Tax tax;
+
     @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinTable(name="products",
-            joinColumns={@JoinColumn(name="products_tb_id")})
+    @JoinTable(name="products_sale",
+            joinColumns={@JoinColumn(name="sale_tb_id")})
     private List<Products> products;
 
     public SaleDTO toDto() {

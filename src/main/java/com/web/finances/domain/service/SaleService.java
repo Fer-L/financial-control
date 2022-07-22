@@ -53,6 +53,7 @@ public class SaleService {
                     oldSale.setValue(sale.getValue());
                     oldSale.setEmissionDate(sale.getEmissionDate());
                     oldSale.setCustomer(sale.getCustomer());
+                    oldSale.setTax(sale.getTax());
                     oldSale.setProducts(sale.getProducts());
 
 

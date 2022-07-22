@@ -3,7 +3,7 @@ package com.web.finances.api.dto;
 import com.web.finances.domain.model.Customer;
 import com.web.finances.domain.model.Products;
 import com.web.finances.domain.model.Sale;
-
+import com.web.finances.domain.model.Tax;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +16,7 @@ public class SaleDTO {
     private Long id;
     private double value;
     private Customer customer;
-
+    private Tax tax;
     private LocalDate emissionDate;
     private List<Products> products;
 
@@ -25,6 +25,7 @@ public class SaleDTO {
         this.value = sale.getValue();
         this.emissionDate = sale.getEmissionDate();
         this.customer = sale.getCustomer();
+        this.tax = sale.getTax();
         this.products = sale.getProducts();
     }
 
