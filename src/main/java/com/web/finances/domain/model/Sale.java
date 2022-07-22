@@ -39,6 +39,10 @@ public class Sale {
     @JoinColumn(name="tax_id", nullable=false)
     private Tax tax;
 
+    @ManyToOne
+    @JoinColumn(name="payment_form_id", nullable=false)
+    private PaymentForm paymentForm;
+
     @OneToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name="products_sale",
             joinColumns={@JoinColumn(name="sale_tb_id")})

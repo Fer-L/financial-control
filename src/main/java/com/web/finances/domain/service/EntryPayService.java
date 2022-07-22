@@ -13,10 +13,8 @@ import java.util.List;
 
 @Service
 public class EntryPayService {
-
     @Autowired
     EntryPayRepository repository;
-
 
     public List<EntryPayDTO> listAll() {
         List<EntryPayDTO> entryPayDTOList = new ArrayList<>();

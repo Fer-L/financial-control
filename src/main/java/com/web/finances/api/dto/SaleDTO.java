@@ -1,9 +1,6 @@
 package com.web.finances.api.dto;
 
-import com.web.finances.domain.model.Customer;
-import com.web.finances.domain.model.Products;
-import com.web.finances.domain.model.Sale;
-import com.web.finances.domain.model.Tax;
+import com.web.finances.domain.model.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +16,7 @@ public class SaleDTO {
     private Tax tax;
     private LocalDate emissionDate;
     private List<Products> products;
+    private PaymentForm paymentForm;
 
     public SaleDTO(Sale sale) {
         this.id = sale.getId();
@@ -27,6 +25,7 @@ public class SaleDTO {
         this.customer = sale.getCustomer();
         this.tax = sale.getTax();
         this.products = sale.getProducts();
+        this.paymentForm = sale.getPaymentForm();
     }
 
 }

@@ -1,6 +1,6 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.AccountChartDTO;
+import com.web.finances.api.dto.PatrimonyDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,38 +13,35 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "ACCOUNT_CHART_TB")
+@Table(name = "PATRIMONY_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountChart {
-
+public class Patrimony {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String classification;
+    private String namePatrimony;
 
     @NotNull
-    private String accountType;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate buyDate;
 
     @NotNull
-    private String description;
+    private double valuePatrimony;
 
+    //vida útil
     @NotNull
-    private Long aspect;
+    private int lifespan;
 
     @ManyToOne
-    @JoinColumn(name="bankAccount_id", nullable=true)
-    private BankAccount bankAccount;
+    @JoinColumn(name="account_chart_id", nullable=false)
+    private AccountChart accountChart;
 
-//    @OneToMany(mappedBy="accountChart")
-//    private Set<Treasury> treasurySet;
-
-    public AccountChartDTO toDto() {
-        return new AccountChartDTO(this);
+    public PatrimonyDTO toDto() {
+        return new PatrimonyDTO(this);
     }
 }
-
