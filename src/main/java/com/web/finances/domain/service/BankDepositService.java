@@ -54,7 +54,7 @@ public class BankDepositService {
                     oldAccountChart.setValue(accountChart.getValue());
                     oldAccountChart.setIsDeposit(accountChart.getIsDeposit());
                     oldAccountChart.setBankAccount(accountChart.getBankAccount());
-                    
+
                     return new ResponseEntity<>(repository.save(oldAccountChart).toDto(), HttpStatus.CREATED);
                 })
                 .orElse(ResponseEntity.notFound().build());
