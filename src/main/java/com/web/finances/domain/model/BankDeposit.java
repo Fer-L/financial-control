@@ -1,5 +1,6 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.BankDepositDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,39 +10,33 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
-@Table(name = "PAY_WRITE_OFF_TB")
+@Table(name = "BANK_DEPOSIT_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PayWriteOff {
+public class BankDeposit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String bank;
+    private double value;
 
     @NotNull
-    private String availability;
-
-    @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dischargeDate;
-
-    @NotNull
-    private Long paidValue;
-
-    @NotNull
-    private String residual;
+    private int isDeposit;
 
     @ManyToOne
-    @JoinColumn(name="entryPay_id", nullable=false)
-    private EntryPay entryPay;
+    @JoinColumn(name="bankAccount_id", nullable=false)
+    private BankAccount bankAccount;
 
-    @OneToOne(mappedBy = "payWriteOff")
-    private PaymentForm paymentForm;
+
+    public BankDepositDTO toDto() {
+        return new BankDepositDTO(this);
+    }
 }
+

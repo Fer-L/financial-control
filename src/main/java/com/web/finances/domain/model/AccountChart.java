@@ -1,5 +1,6 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.AccountChartDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,21 +34,17 @@ public class AccountChart {
     private String description;
 
     @NotNull
-    private Long bank;
-
-    @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate resourceEntry;
-
-    @NotNull
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate resourceDeparture;
+    private Long aspect;
 
     @ManyToOne
-    @JoinColumn(name="bankAccount_id", nullable=false)
+    @JoinColumn(name="bankAccount_id", nullable=true)
     private BankAccount bankAccount;
 
-    @OneToMany(mappedBy="accountChart")
-    private Set<Treasury> treasurySet;
+//    @OneToMany(mappedBy="accountChart")
+//    private Set<Treasury> treasurySet;
+
+    public AccountChartDTO toDto() {
+        return new AccountChartDTO(this);
+    }
 }
 

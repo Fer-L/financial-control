@@ -6,6 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CustomerDTO {
+
+    private long id;
     private String corporateName;
     private String cnpjCpf;
     private String address;
@@ -15,6 +17,8 @@ public class CustomerDTO {
     private String mail;
 
     public CustomerDTO(Customer customer) {
+
+        this.id = customer.getId();
         this.corporateName = customer.getCorporateName();
         this.cnpjCpf = customer.getCnpjCpf();
         this.address = customer.getAddress();
@@ -24,4 +28,3 @@ public class CustomerDTO {
         this.mail = customer.getMail();
     }
 }
-

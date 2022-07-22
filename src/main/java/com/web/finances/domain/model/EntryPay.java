@@ -1,5 +1,6 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.EntryPayDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EntryPay {
-
+    //usei como contas a receber
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -27,7 +28,16 @@ public class EntryPay {
     private String docNumber;
 
     @NotNull
-    private Long titleValue;
+    private double titleValue;
+
+    @ManyToOne
+    @JoinColumn(name="company_id", nullable=false)
+    private Company company;
+
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable=false)
+    private Customer customer;
+
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -37,19 +47,9 @@ public class EntryPay {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emissionDate;
 
-    @ManyToMany
-    Set<Treasury> treasuries;
 
-    @ManyToMany
-    Set<EntryReceive> entryReceives;
 
-    @OneToMany(mappedBy="entryPay")
-    private Set<PayWriteOff> payWriteOffs;
-
-    @OneToOne(mappedBy = "entryPay")
-    private PaymentForm paymentForm;
-
-    @ManyToOne
-    @JoinColumn(name="company_id", nullable=false)
-    private Company company;
+    public EntryPayDTO toDto() {
+        return new EntryPayDTO(this);
+    }
 }

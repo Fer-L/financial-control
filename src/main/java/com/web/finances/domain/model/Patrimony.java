@@ -1,5 +1,6 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.PatrimonyDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,36 +10,38 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
-@Table(name = "RECEIVE_WRITE_OFF_TB")
+@Table(name = "PATRIMONY_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReceiveWriteOff {
-    //RECEBER ESCRITURA
-
+public class Patrimony {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String bank;
-
-    @NotNull
-    private String availability;
+    private String namePatrimony;
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dischargeDate;
+    private LocalDate buyDate;
 
     @NotNull
-    private Long paidValue;
+    private double valuePatrimony;
 
+    //vida útil
     @NotNull
-    private String residual;
+    private int lifespan;
 
-    @OneToOne(mappedBy = "receiveWriteOff")
-    private EntryReceive entryReceive;
+    @ManyToOne
+    @JoinColumn(name="account_chart_id", nullable=false)
+    private AccountChart accountChart;
+
+    public PatrimonyDTO toDto() {
+        return new PatrimonyDTO(this);
+    }
 }

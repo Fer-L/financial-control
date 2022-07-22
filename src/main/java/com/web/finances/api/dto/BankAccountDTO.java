@@ -8,6 +8,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class BankAccountDTO {
+
+    private Long id;
     private String classification;
     private String description;
     private String accountNumber;
@@ -15,8 +17,10 @@ public class BankAccountDTO {
     private LocalDate inicialBalanceDate;
     private BigDecimal inicialBalance;
     private Long bank;
+    private String cnpjCompany;
 
     public BankAccountDTO(BankAccount bankAccount) {
+        this.id = bankAccount.getId();
         this.classification = bankAccount.getClassification();
         this.description = bankAccount.getDescription();
         this.accountNumber = bankAccount.getAccountNumber();
@@ -24,5 +28,6 @@ public class BankAccountDTO {
         this.inicialBalanceDate = bankAccount.getInicialBalanceDate();
         this.inicialBalance = bankAccount.getInicialBalance();
         this.bank = bankAccount.getBank();
+        this.cnpjCompany = bankAccount.getCnpjCompany();
     }
 }

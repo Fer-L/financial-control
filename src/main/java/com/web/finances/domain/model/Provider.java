@@ -1,5 +1,6 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.ProviderDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,11 +43,7 @@ public class Provider {
     @NotNull
     private String mail;
 
-    @OneToMany(mappedBy="provider")
-    private Set<Treasury> treasuries;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "entryReceive_id", referencedColumnName = "id")
-    private EntryReceive entryReceive;
-
+    public ProviderDTO toDto() {
+        return new ProviderDTO(this);
+    }
 }

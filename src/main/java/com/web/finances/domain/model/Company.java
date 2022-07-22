@@ -1,5 +1,7 @@
 package com.web.finances.domain.model;
 
+import com.web.finances.api.dto.BankAccountDTO;
+import com.web.finances.api.dto.CompanyDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -51,12 +53,12 @@ public class Company {
     @NotNull
     private String cpf;
 
-    @OneToMany(mappedBy="company")
-    private Set<EntryPay> entryPays;
 
-    @OneToMany(mappedBy="company")
-    private Set<EntryReceive> entryReceives;
+//    @OneToMany(mappedBy="company")
+//    private Set<EntryReceive> entryReceives;
 
-    @OneToMany(mappedBy="company")
-    private Set<EntryPay> entryPaysCompany;
+
+    public CompanyDTO toDto() {
+        return new CompanyDTO(this);
+    }
 }
