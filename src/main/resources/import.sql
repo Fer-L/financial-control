@@ -28,4 +28,6 @@ insert into products_tb (id,company_id, provider_id, description, name_product,v
 
 insert into inventory_tb (id,products_id, qtde, estimated_sale_price) values (1, 1, 8 ,20.7 );
 
-insert into tax_tb (id,"percent", name_tax, "scope") values (1, 17.5 , 'ICMS','Estadual' );
+insert into law_tb (id,law_number,law_description) values (1, '103/2020', 'Altera os valoress das alíquotas' );
+
+insert into tax_tb (id,"percent", name_tax, "scope", law_id) values (1, 17.5 , 'ICMS','Estadual', 1 );

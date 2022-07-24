@@ -1,10 +1,8 @@
 package com.web.finances.domain.service;
 
-import com.web.finances.api.dto.AccountChartDTO;
+
 import com.web.finances.api.dto.PaymentFormDTO;
-import com.web.finances.domain.model.AccountChart;
 import com.web.finances.domain.model.PaymentForm;
-import com.web.finances.domain.repository.AccountChartRepository;
 import com.web.finances.domain.repository.PaymentFormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -33,16 +33,16 @@ public class BankAccountEmployee {
     private Employee employee;
 
     @NotNull
-    private int conta;
+    private String conta;
 
     @NotNull
     private String agencia;
 
     @NotNull
-    private int dv_agencia;
+    private String dvAgencia;
 
     @NotNull
-    private int dv_conta;
+    private String dvConta;
 
 
     public BankAccountEmployeeDTO toDto() {

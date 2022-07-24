@@ -51,11 +51,14 @@ public class BankAccountEmployeeService {
     public ResponseEntity<BankAccountEmployeeDTO> update(BankAccountEmployee bankAccountEmployee) {
         return repository.findById(bankAccountEmployee.getId())
                 .map(oldbankAccountEmployee -> {
+
+                    System.out.println(bankAccountEmployee);
                     oldbankAccountEmployee.setBank(bankAccountEmployee.getBank());
+                    oldbankAccountEmployee.setEmployee(bankAccountEmployee.getEmployee());
                     oldbankAccountEmployee.setAgencia(bankAccountEmployee.getAgencia());
-                    oldbankAccountEmployee.setDv_agencia(bankAccountEmployee.getDv_agencia());
+                    oldbankAccountEmployee.setDvAgencia(bankAccountEmployee.getDvAgencia());
                     oldbankAccountEmployee.setConta(bankAccountEmployee.getConta());
-                    oldbankAccountEmployee.setDv_conta(bankAccountEmployee.getDv_conta());
+                    oldbankAccountEmployee.setDvConta(bankAccountEmployee.getDvConta());
                     return new ResponseEntity<>(repository.save(oldbankAccountEmployee).toDto(), HttpStatus.CREATED);
                 })
                 .orElse(ResponseEntity.notFound().build());

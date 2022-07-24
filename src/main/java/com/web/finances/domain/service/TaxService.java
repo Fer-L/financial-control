@@ -53,6 +53,7 @@ public class TaxService {
                     oldTax.setPercent(tax.getPercent());
                     oldTax.setNameTax(tax.getNameTax());
                     oldTax.setScope(tax.getScope());
+                    oldTax.setLaw(tax.getLaw());
 
 
 

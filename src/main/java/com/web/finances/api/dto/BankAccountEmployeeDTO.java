@@ -3,10 +3,11 @@ package com.web.finances.api.dto;
 import com.web.finances.domain.model.Bank;
 import com.web.finances.domain.model.BankAccountEmployee;
 import com.web.finances.domain.model.Employee;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
+@Getter
+@Setter
 public class BankAccountEmployeeDTO {
 
     private Long id;
@@ -15,21 +16,22 @@ public class BankAccountEmployeeDTO {
 
     private Employee employee;
 
-    private int conta;
+    private String conta;
 
     private String agencia;
 
-    private int dv_agencia;
+    private String dvAgencia;
 
-    private int dv_conta;
-
+    private String dvConta;
 
     public BankAccountEmployeeDTO(BankAccountEmployee bk) {
         this.id=bk.getId();
         this.bank=bk.getBank();
         this.employee=bk.getEmployee();
+        this.conta=bk.getConta();
         this.agencia=bk.getAgencia();
-        this.dv_agencia=bk.getDv_agencia();
+        this.dvAgencia=bk.getDvAgencia();
+        this.dvConta=bk.getDvConta();
     }
 
     }
