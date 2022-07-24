@@ -51,8 +51,8 @@ public class FundsService {
     public ResponseEntity<FundsDTO> update(Funds funds) {
         return repository.findById(funds.getId())
                 .map(oldFunds -> {
-                    oldFunds.setName(oldFunds.getName());
-                    oldFunds.setProvento(oldFunds.getProvento());
+                    oldFunds.setName(funds.getName());
+                    oldFunds.setProvento(funds.getProvento());
                     return new ResponseEntity<>(repository.save(oldFunds).toDto(), HttpStatus.CREATED);
                 })
                 .orElse(ResponseEntity.notFound().build());

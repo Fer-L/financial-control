@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Employee")
+@RequestMapping("/employee")
 public class EmployeeController {
     @Autowired
     EmployeeService service;
@@ -39,6 +39,7 @@ public class EmployeeController {
 
     @PutMapping("/update")
     public ResponseEntity<EmployeeDTO> update(@RequestBody  Employee employee) {
+
         return service.update(employee);
     }
 

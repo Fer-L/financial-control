@@ -24,7 +24,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long employee_id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="people_id", nullable=false)
@@ -41,6 +41,10 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name="funds_id", nullable=false)
     private Funds funds;
+
+    @ManyToOne
+    @JoinColumn(name="health_plan_id", nullable=false)
+    private HealthPlan healthPlan;
 
     public EmployeeDTO toDto() {return new EmployeeDTO(this);}
 }

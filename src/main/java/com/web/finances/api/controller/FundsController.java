@@ -39,6 +39,9 @@ public class FundsController {
 
     @PutMapping("/update")
     public ResponseEntity<FundsDTO> update(@RequestBody  Funds funds) {
+        System.out.println("id"+funds.getId());
+        System.out.println("name"+funds.getName());
+        System.out.println("prov"+funds.getProvento());
         return service.update(funds);
     }
 

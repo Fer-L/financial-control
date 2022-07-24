@@ -1,10 +1,6 @@
 package com.web.finances.api.dto;
 
-import com.web.finances.domain.model.Employee;
-import com.web.finances.domain.model.Company;
-import com.web.finances.domain.model.Professions;
-import com.web.finances.domain.model.Funds;
-import com.web.finances.domain.model.PersonalData;
+import com.web.finances.domain.model.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 public class EmployeeDTO {
 
-    private Long employee_id;
+    private Long id;
 
     private PersonalData people;
 
@@ -25,12 +21,14 @@ public class EmployeeDTO {
 
     private Funds funds;
 
+    private HealthPlan healthPlan;
     public EmployeeDTO(Employee employee) {
-        this.employee_id = employee.getEmployee_id();
+        this.id = employee.getId();
         this.people = employee.getPeople();
         this.company = employee.getCompany();
         this.profession = employee.getProfession();
         this.funds = employee.getFunds();
+        this.healthPlan=employee.getHealthPlan();
     }
 
 
