@@ -23,7 +23,7 @@ public class PersonalData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long people_id;
+    private Long id;
 
     @NotNull
     private String name;
@@ -33,7 +33,7 @@ public class PersonalData {
 
     @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate birth_date;
+    private LocalDate birthDate;
 
     private String email;
 

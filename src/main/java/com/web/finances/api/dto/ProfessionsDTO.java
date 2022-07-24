@@ -9,21 +9,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
 public class ProfessionsDTO {
 
-    private Long profession_id;
+    private Long id;
 
-    private String profession_name;
+    private String professionName;
 
     private  int workload;
 
     public ProfessionsDTO(Professions profession) {
-        this.profession_id = profession.getProfession_id();
-        this.profession_name = profession.getProfession_name();
+        this.id = profession.getId();
+        this.professionName = profession.getProfessionName();
         this.workload = profession.getWorkload();
     }
 

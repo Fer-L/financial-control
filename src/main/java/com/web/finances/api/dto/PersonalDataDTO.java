@@ -12,29 +12,21 @@ import java.time.LocalDate;
 @Setter
 public class PersonalDataDTO {
 
-    private Long people_id;
-
+    private Long id;
     private String name;
-
     private String cpf;
-
-    private LocalDate birth_date;
-
+    private LocalDate birthDate;
     private String email;
-
     private String phone;
-
     private String rua;
-
     private String bairro;
-
     private String cidade;
 
     public PersonalDataDTO(PersonalData pessoa) {
-        this.people_id = pessoa.getPeople_id();
+        this.id = pessoa.getId();
         this.name = pessoa.getName();
         this.cpf = pessoa.getCpf();
-        this.birth_date = pessoa.getBirth_date();
+        this.birthDate = pessoa.getBirthDate();
         this.email = pessoa.getEmail();
         this.phone = pessoa.getPhone();
         this.rua = pessoa.getRua();

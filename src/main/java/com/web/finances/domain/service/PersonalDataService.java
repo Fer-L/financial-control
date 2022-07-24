@@ -49,11 +49,11 @@ public class PersonalDataService {
     }
 
     public ResponseEntity<PersonalDataDTO> update(PersonalData personalData) {
-        return repository.findById(personalData.getPeople_id())
+        return repository.findById(personalData.getId())
                 .map(oldpersonalData -> {
                     oldpersonalData.setCpf(personalData.getCpf());
                     oldpersonalData.setName(personalData.getName());
-                    oldpersonalData.setBirth_date(personalData.getBirth_date());
+                    oldpersonalData.setBirthDate(personalData.getBirthDate());
                     oldpersonalData.setEmail(personalData.getEmail());
                     oldpersonalData.setPhone(personalData.getPhone());
                     oldpersonalData.setRua(personalData.getRua());

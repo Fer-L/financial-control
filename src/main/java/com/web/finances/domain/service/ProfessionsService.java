@@ -49,9 +49,9 @@ public class ProfessionsService {
     }
 
     public ResponseEntity<ProfessionsDTO> update(Professions professionData) {
-        return repository.findById(professionData.getProfession_id())
+        return repository.findById(professionData.getId())
                 .map(oldProfessionData -> {
-                    oldProfessionData.setProfession_name(professionData.getProfession_name());
+                    oldProfessionData.setProfessionName(professionData.getProfessionName()  );
                     oldProfessionData.setWorkload(professionData.getWorkload());
                     return new ResponseEntity<>(repository.save(oldProfessionData).toDto(), HttpStatus.CREATED);
                 })

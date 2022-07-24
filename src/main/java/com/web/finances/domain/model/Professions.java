@@ -23,10 +23,10 @@ public class Professions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long profession_id;
+    private Long id;
 
     @NotNull
-    private String profession_name;
+    private String professionName;
 
     @NotNull
     private  int workload;

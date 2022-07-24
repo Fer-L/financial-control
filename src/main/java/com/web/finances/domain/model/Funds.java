@@ -22,7 +22,7 @@ public class Funds {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long funds_id;
+    private Long id;
 
     @NotNull
     private  String name;

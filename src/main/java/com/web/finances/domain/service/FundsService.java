@@ -49,7 +49,7 @@ public class FundsService {
     }
 
     public ResponseEntity<FundsDTO> update(Funds funds) {
-        return repository.findById(funds.getFunds_id())
+        return repository.findById(funds.getId())
                 .map(oldFunds -> {
                     oldFunds.setName(oldFunds.getName());
                     oldFunds.setProvento(oldFunds.getProvento());

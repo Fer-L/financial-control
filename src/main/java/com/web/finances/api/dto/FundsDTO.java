@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class FundsDTO {
 
-    private Long funds_id;
+    private Long id;
 
     private  String name;
 
@@ -18,7 +18,7 @@ public class FundsDTO {
 
 
     public FundsDTO(Funds funds) {
-        this.funds_id = funds.getFunds_id();
+        this.id = funds.getId();
         this.name = funds.getName();
         this.provento = funds.getProvento();
     }
