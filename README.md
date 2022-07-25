@@ -30,5 +30,5 @@ yarn start
 ```
 
 <footer>
-<p>Feito com ❤️ por Fernanda Luna, Leandro Vargas, Adahylton Tenório e Rodrigo Moura</p>
+<p>Feito com ❤️ por Fernanda Luna, Leandro Vargas, Adahylton Tenório,Rodrigo Moura e João Campos</p>
 </footer>
