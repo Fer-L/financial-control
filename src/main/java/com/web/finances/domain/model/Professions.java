@@ -1,42 +1,37 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.TaxDTO;
+import com.web.finances.api.dto.ProfessionsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Set;
+
 
 @Entity
-@Table(name = "TAX_TB")
+@Table(name = "Professions_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tax {
+public class Professions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private double percent;
+    private String professionName;
 
     @NotNull
-    private String nameTax;
+    private  int workload;
 
-    //esfera (municipal, estadual, federal)
-    @NotNull
-    private String scope;
-
-    @ManyToOne
-    @JoinColumn(name="law_id", nullable=false)
-    private Law law;
-
-    public TaxDTO toDto() {
-        return new TaxDTO(this);
+    public ProfessionsDTO toDto() {
+        return new ProfessionsDTO(this);
     }
-
 }

@@ -1,6 +1,6 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.TaxDTO;
+import com.web.finances.api.dto.HealthPlanDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,35 +8,27 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
+import java.util.Set;
 @Entity
-@Table(name = "TAX_TB")
+@Table(name = "HEALTH_PLAN_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tax {
+public class HealthPlan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private double percent;
+    private String operadora;
 
-    @NotNull
-    private String nameTax;
+    private String codigoAns;
 
-    //esfera (municipal, estadual, federal)
-    @NotNull
-    private String scope;
 
-    @ManyToOne
-    @JoinColumn(name="law_id", nullable=false)
-    private Law law;
-
-    public TaxDTO toDto() {
-        return new TaxDTO(this);
+    public HealthPlanDTO toDto() {
+        return new HealthPlanDTO(this);
     }
-
 }
+

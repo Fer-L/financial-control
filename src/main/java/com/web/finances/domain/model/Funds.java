@@ -1,42 +1,38 @@
 package com.web.finances.domain.model;
 
-import com.web.finances.api.dto.TaxDTO;
+import com.web.finances.api.dto.FundsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+
+
 @Entity
-@Table(name = "TAX_TB")
+@Table(name = "FUNDS_TB")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tax {
+public class Funds {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private double percent;
+    private  String name;
 
     @NotNull
-    private String nameTax;
+    private String provento;
 
-    //esfera (municipal, estadual, federal)
-    @NotNull
-    private String scope;
 
-    @ManyToOne
-    @JoinColumn(name="law_id", nullable=false)
-    private Law law;
 
-    public TaxDTO toDto() {
-        return new TaxDTO(this);
+    public FundsDTO toDto() {
+        return new FundsDTO(this);
     }
-
 }

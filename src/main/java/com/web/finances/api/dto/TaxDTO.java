@@ -1,5 +1,6 @@
 package com.web.finances.api.dto;
 
+import com.web.finances.domain.model.Law;
 import com.web.finances.domain.model.Tax;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,12 +12,13 @@ public class TaxDTO {
     private double percent;
     private String nameTax;
     private String scope;
-
-    public TaxDTO(Tax products) {
-        this.id = products.getId();
-        this.percent = products.getPercent();
-        this.nameTax = products.getNameTax();
-        this.scope = products.getScope();
+    private Law law;
+    public TaxDTO(Tax tax) {
+        this.id = tax.getId();
+        this.percent = tax.getPercent();
+        this.nameTax = tax.getNameTax();
+        this.scope = tax.getScope();
+        this.law = tax.getLaw();
     }
 
 }

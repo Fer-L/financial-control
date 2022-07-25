@@ -1,9 +1,9 @@
 package com.web.finances.domain.service;
 
 
-import com.web.finances.api.dto.PaymentFormDTO;
-import com.web.finances.domain.model.PaymentForm;
-import com.web.finances.domain.repository.PaymentFormRepository;
+import com.web.finances.api.dto.HealthPlanDTO;
+import com.web.finances.domain.model.HealthPlan;
+import com.web.finances.domain.repository.HealthPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,31 +13,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PaymentFormService {
+public class HealthPlanService {
 
     @Autowired
-    PaymentFormRepository repository;
+    HealthPlanRepository repository;
 
-    public List<PaymentFormDTO> listAll() {
-        List<PaymentFormDTO> paymentFormDTOList = new ArrayList<>();
+    public List<HealthPlanDTO> listAll() {
+        List<HealthPlanDTO> paymentFormDTOList = new ArrayList<>();
         repository.findAll()
                 .forEach(paymentForm -> paymentFormDTOList.add(paymentForm.toDto()));
         return paymentFormDTOList;
     }
 
-    public ResponseEntity<PaymentFormDTO> listById(Long id) {
+    public ResponseEntity<HealthPlanDTO> listById(Long id) {
         return repository.findById(id)
                 .map(accountChart -> ResponseEntity.ok().body(accountChart.toDto())
                 ).orElse(ResponseEntity.notFound().build());
     }
 
-    public ResponseEntity<PaymentFormDTO> findById(Long id) {
+    public ResponseEntity<HealthPlanDTO> findById(Long id) {
         return repository.findById(id)
                 .map(accountChart -> ResponseEntity.ok(accountChart.toDto()))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    public ResponseEntity<PaymentFormDTO> create(PaymentForm paymentForm) {
+    public ResponseEntity<HealthPlanDTO> create(HealthPlan paymentForm) {
         return new ResponseEntity<>(repository.save(paymentForm).toDto(), HttpStatus.CREATED);
     }
 
@@ -49,10 +49,11 @@ public class PaymentFormService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-    public ResponseEntity<PaymentFormDTO> update(PaymentForm paymentForm) {
+    public ResponseEntity<HealthPlanDTO> update(HealthPlan paymentForm) {
         return repository.findById(paymentForm.getId())
                 .map(oldPaymentForm -> {
-                    oldPaymentForm.setDescription(paymentForm.getDescription());
+                    oldPaymentForm.setOperadora(paymentForm.getOperadora());
+                    oldPaymentForm.setCodigoAns(paymentForm.getCodigoAns());
                     return new ResponseEntity<>(repository.save(oldPaymentForm).toDto(), HttpStatus.CREATED);
                 })
                 .orElse(ResponseEntity.notFound().build());
