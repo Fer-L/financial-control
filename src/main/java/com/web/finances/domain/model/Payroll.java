@@ -23,27 +23,25 @@ public class Payroll {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long payroll_id;
+    private Long id;
 
 
     @ManyToOne
     @JoinColumn(name="employee_id", nullable=false)
     private Employee employee;
 
-    @ManyToOne
-    @JoinColumn(name="funds_id", nullable=false)
-    private Funds funds;
 
     @NotNull
-    private double valor;
+    private double valorBruto;
 
-    private String referencia;
+    private double valorDesconto;
 
-    @NotNull
-    private String ano;
+    private double valorLiquido;
 
-    @NotNull
-    private  String mes;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataPagamento;
+
+
 
 
     public PayrollDTO toDto() {

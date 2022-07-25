@@ -46,5 +46,10 @@ public class Employee {
     @JoinColumn(name="health_plan_id", nullable=false)
     private HealthPlan healthPlan;
 
+
+    @ManyToOne
+    @JoinColumn(name="sector_id", nullable=false)
+    private Sector sector;
+
     public EmployeeDTO toDto() {return new EmployeeDTO(this);}
 }

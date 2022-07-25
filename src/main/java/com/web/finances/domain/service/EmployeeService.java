@@ -54,6 +54,7 @@ public class EmployeeService {
                     oldemployeeData.setCompany(employeeData.getCompany());
                     oldemployeeData.setProfession(employeeData.getProfession());
                     oldemployeeData.setFunds(employeeData.getFunds());
+                    oldemployeeData.setSector(employeeData.getSector());
                     oldemployeeData.setHealthPlan((employeeData.getHealthPlan()));
                     return new ResponseEntity<>(repository.save(oldemployeeData).toDto(), HttpStatus.CREATED);
                 })

@@ -21,6 +21,8 @@ public class EmployeeDTO {
 
     private Funds funds;
 
+    private Sector sector;
+
     private HealthPlan healthPlan;
     public EmployeeDTO(Employee employee) {
         this.id = employee.getId();
@@ -29,6 +31,7 @@ public class EmployeeDTO {
         this.profession = employee.getProfession();
         this.funds = employee.getFunds();
         this.healthPlan=employee.getHealthPlan();
+        this.sector=employee.getSector();
     }
 
 
