@@ -5,16 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.util.Set;
-
 
 @Entity
-@Table(name = "Payroll_TB")
+@Table(name = "PAYROLL_TB")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,24 +22,18 @@ public class Payroll {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    private int payYear;
+
+    @NotNull
+    private int payMount;
 
     @ManyToOne
     @JoinColumn(name="employee_id", nullable=false)
     private Employee employee;
 
-
-    @NotNull
-    private double valorBruto;
-
-    private double valorDesconto;
-
-    private double valorLiquido;
-
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataPagamento;
-
-
-
+//    @OneToMany(mappedBy = "payroll")
+//    private Set<ItemPay> itemPays;
 
     public PayrollDTO toDto() {
         return new PayrollDTO(this);

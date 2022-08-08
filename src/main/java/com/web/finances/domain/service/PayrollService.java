@@ -39,7 +39,7 @@ public class PayrollService {
     }
 
     public ResponseEntity<PayrollDTO> create(Payroll personalData) {
-        personalData.setValorLiquido(personalData.getValorBruto()-personalData.getValorDesconto());
+
         return new ResponseEntity<>(repository.save(personalData).toDto(), HttpStatus.CREATED);
     }
 
@@ -53,13 +53,12 @@ public class PayrollService {
 
     public ResponseEntity<PayrollDTO> update(Payroll personalData) {
         return repository.findById(personalData.getId())
-                .map(oldpersonalData -> {
-                    oldpersonalData.setValorBruto(personalData.getValorBruto());
-                    oldpersonalData.setValorDesconto(personalData.getValorDesconto());
-                    oldpersonalData.setValorLiquido(personalData.getValorBruto()- personalData.getValorDesconto());
+                .map(oldPersonalData -> {
+                    oldPersonalData.setEmployee(personalData.getEmployee());
+                    oldPersonalData.setPayMount(personalData.getPayMount());
+                    oldPersonalData.setPayYear(personalData.getPayYear());
 
-                    oldpersonalData.setDataPagamento(personalData.getDataPagamento());
-                    return new ResponseEntity<>(repository.save(oldpersonalData).toDto(), HttpStatus.CREATED);
+                    return new ResponseEntity<>(repository.save(oldPersonalData).toDto(), HttpStatus.CREATED);
                 })
                 .orElse(ResponseEntity.notFound().build());
     }

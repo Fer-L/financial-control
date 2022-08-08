@@ -40,5 +40,9 @@ insert into funds_tb (id,name,provento) values(1,'Vencimento Base','1');
 
 insert into sector_tb (id,name_sector,company_id) values(1,'COORD. DESENVOLVIMENTO',1);
 
-insert into health_plan_tb (id,codigo_ans,operadora) values(1,'ABC123','SUS');
+insert into health_plan_tb (id,codigo_ans,operadora) values(1,'ABC123','Brad Saúde');
+
+insert into personal_data_tb (id,	bairro,	birth_date,	cidade,	cpf,	email,	"name",	phone,	rua) values (1,'Centro','1997-09-03', 'VG', '000.000.000-55', 'lvar@lvarg.com', 'Leandro Var', '(65) 9 9999-9999', 'Joao L');
+
+insert  into employee_tb (id,company_id,funds_id,health_plan_id,people_id,profession_id,sector_id) values (1,1,	1,	1,	1,	1,	1);
 
